@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pre-commit": "git add -A .",
+    "push-stable": "git push remote master:gh-pages",
+    "bump-patch": "npm version patch -m 'Version bump to %s.' && echo 'Don\t forget to bump in index.js and bookmark.js!'",
+    "bump-minor": "npm version minor -m 'Version bump to %s.' && echo 'Don\t forget to bump in index.js and bookmark.js!'",
+    "bump-major": "npm version major -m 'Version bump to %s.' && echo 'Don\t forget to bump in index.js and bookmark.js!'",
+    "postversion": "git push --tags"
   },
   "repository": {
     "type": "git",

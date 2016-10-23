@@ -4,7 +4,7 @@
   global $
 */
 
-const localVersion = '0.0.1';
+const localVersion = '0.0.2';
 
 function classType(ap, honors) {
   if (ap) {
@@ -28,13 +28,20 @@ function generateTable(array, $) {
   }
 }
 
-try {
-  let remoteVersion = window.location.hash.substring(1).match(/&(.*)/)[1];
-  let array = atob(window.location.hash.substring(1).replace(`&${remoteVersion}`, ''));
-  array = JSON.parse(array);
-  let trueGpa = array[array.length - 1].gpa;
+const hashString = window.location.hash.substring(1);
+
+Zepto(function($) {
+  if (hashString === '') {
+    $('#version-warning').remove();
+    $('.show-if-valid').remove();
+  }
   
-  Zepto(function($) {
+  try {
+    let remoteVersion = hashString.match(/&(.*)/)[1];
+    let array = atob(window.location.hash.substring(1).replace(`&${remoteVersion}`, ''));
+    array = JSON.parse(array);
+    let trueGpa = array[array.length - 1].gpa;
+    
     if (remoteVersion === localVersion) {
       $('#version-warning').remove();
       $('.show-if-invalid').remove();
@@ -42,12 +49,12 @@ try {
     
     $('#gpa').text(`GPA: ${trueGpa}`);
     generateTable(array, $);
-  });
-}
-catch(e) {
-  if (e.message === 'Unexpected end of JSON input') {
-    $('.show-if-valid').remove();
-  } else {
-    throw new Error(e);
   }
-}
+  catch(e) {
+    if (e.message === 'Unexpected end of JSON input') {
+      $('.show-if-valid').remove();
+    } else {
+      throw new Error(e);
+    }
+  }
+});
