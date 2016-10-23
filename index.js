@@ -4,7 +4,7 @@
   global $
 */
 
-const localVersion = '0.0.2';
+const localVersion = '0.0.3';
 
 function classType(ap, honors) {
   if (ap) {
