@@ -6,9 +6,9 @@
   "scripts": {
     "pre-commit": "git add -A .",
     "push-stable": "git push origin master:gh-pages",
-    "bump-patch": "npm version patch -m 'Version bump to %s.' && echo 'Bump index.js and bookmark.js!'",
-    "bump-minor": "npm version minor -m 'Version bump to %s.' && echo 'Bump index.js and bookmark.js!'",
-    "bump-major": "npm version major -m 'Version bump to %s.' && echo 'Bump index.js and bookmark.js!'",
+    "bump-patch": "npm version patch -m 'Version bump to %s.' && echo 'Bump index.js, index.html and bookmark.js!'",
+    "bump-minor": "npm version minor -m 'Version bump to %s.' && echo 'Bump index.js, index.html and bookmark.js!'",
+    "bump-major": "npm version major -m 'Version bump to %s.' && echo 'Bump index.js, index.html and bookmark.js!'",
     "postversion": "git push --tags"
   },
   "repository": {
