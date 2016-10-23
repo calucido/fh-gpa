@@ -1,0 +1,9 @@
+Calvin Lucido
+@calucido
+https://github.com/calucido
+
+/* SITE */
+CSS: Custom + Furtive
+JS: Custom + Zepto
+Bookmarklet: http://mrcoles.com/bookmarklet/
+Data Binding (deprecated): https://remysharp.com/2015/06/02/bind
