@@ -1,10 +1,11 @@
 /*
   global atob
+  global btoa
   global Zepto
   global $
 */
 
-const localVersion = '0.0.4';
+const localVersion = '0.0.5';
 
 function classType(ap, honors) {
   if (ap) {
@@ -44,11 +45,12 @@ Zepto(function($) {
     
     if (remoteVersion === localVersion) {
       $('#version-warning').remove();
-      $('.show-if-invalid').remove();
     }
     
     $('#gpa').text(`GPA: ${trueGpa}`);
     generateTable(array, $);
+    
+    $('#share-url').val(`https://calucido.github.io/fh-gpa#${btoa(JSON.stringify([{gpa:trueGpa}]))}&${localVersion}`);
   }
   catch(e) {
     if (e.message === 'Unexpected end of JSON input') {
